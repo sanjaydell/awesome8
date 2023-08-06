@@ -1,13 +1,15 @@
 import { useCallback, useEffect, useState } from "react";
 import PullToRefresh from "react-pull-to-refresh";
+import { useRecoilState, useRecoilValue } from "recoil";
 
 import "./App.css";
 import { fetchDataFromServer, bookData } from "./api/api";
 import BookCard from "./components/BookCard";
+import { booksState, isLoadingState } from "./atom";
 
 function App() {
-  const [books, setBooks] = useState<bookData[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [books, setBooks] = useRecoilState<bookData[]>(booksState);
+  const [isLoading, setIsLoading] = useRecoilState<boolean>(isLoadingState);
 
   async function refresh() {
     setBooks([]);
@@ -18,7 +20,7 @@ function App() {
     setIsLoading(true);
     try {
       const responseData = await fetchDataFromServer(books.length);
-      setBooks((prevData) => [...prevData, ...responseData]);
+      setBooks((prevData: bookData[]) => [...prevData, ...responseData]);
     } catch (error) {
       console.error("Error fetching data:", error);
     }

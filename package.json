@@ -18,6 +18,7 @@
   "author": "sanjay",
   "license": "ISC",
   "dependencies": {
+    "recoil": "^0.7.7",
     "ts-node": "^10.9.1"
   }
 }
