@@ -34,4 +34,16 @@ export class BooksRepository {
       throw error;
     }
   };
+
+  public buyBook = async (bookId: number, userID: number): Promise<void> => {
+    try {
+      const connection: PoolConnection = await this.pool.getConnection();
+      //assuming we have tables for orders and user
+      await connection.query("INSERT INTO purchases (book_id, user_id) VALUES (?, ?)", [bookId, userID]);
+      connection.release();
+    } catch (error) {
+      console.error("Error buying the book:", error);
+      throw error;
+    }
+  };
 }
