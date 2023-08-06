@@ -1,6 +1,5 @@
 .bookCard {
-  width: 50%;
-  /* display: inline-block; */
+  width: 100%;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -10,16 +9,37 @@
   width: 100%;
 }
 
+img {
+  width: 100%;
+}
+
 .content {
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  padding: 0.5rem;
 }
 
 .details {
-  width: 100%;
+  width: 90%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding-left: 1rem;
+}
+
+.bookName {
+  font-weight: 500;
+  display: flex;
+  padding-left: 1rem;
+}
+
+.discountRate {
+  color: red;
+  font-weight: 700;
+}
+
+.price {
+  font-weight: 700;
 }

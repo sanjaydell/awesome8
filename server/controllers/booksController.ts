@@ -1,5 +1,5 @@
-import { Request, Response } from 'express';
-import { BooksService } from '../services/booksService';
+import { Request, Response } from "express";
+import { BooksService } from "../services/booksService";
 
 export class BooksController {
   private booksService: BooksService;
@@ -8,13 +8,13 @@ export class BooksController {
     this.booksService = new BooksService();
   }
 
-  public getAllBooks = async (_req: Request, res: Response) => {
+  public getAllBooks = async (req: Request, res: Response) => {
     try {
-      const books = await this.booksService.getAllBooks();
+      const books = await this.booksService.getAllBooks(req);
       res.json(books);
     } catch (error) {
-      console.error('Error fetching books:', error);
-      res.status(500).json({ error: 'Internal Server Error' });
+      console.error("Error fetching books:", error);
+      res.status(500).json({ error: "Internal Server Error" });
     }
   };
 }
