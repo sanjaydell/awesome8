@@ -1,7 +1,7 @@
 export default function BookImage() {
   return (
-    <div className="image">
-      <img src="image.png" alt="logo" />
+    <div className="w-full">
+      <img src="image.png" className="w-full" alt="logo" />
     </div>
   );
 }

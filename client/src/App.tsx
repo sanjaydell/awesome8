@@ -1,8 +1,9 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect } from "react";
 import PullToRefresh from "react-pull-to-refresh";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilState } from "recoil";
+import 'tailwindcss/tailwind.css';
 
-import "./App.css";
+// import "./App.css";
 import { fetchDataFromServer, bookData } from "./api/api";
 import BookCard from "./components/BookCard";
 import { booksState, isLoadingState } from "./atom";
@@ -46,10 +47,10 @@ function App() {
   }, [handleScroll]);
 
   return (
-    <div className="App">
+    <div className="flex bg-white flex-col text-center max-w-[700px] mx-auto min-w-[350px]">
       <PullToRefresh onRefresh={refresh}>
-        <header className="header">Book Store</header>
-        <div className="bookGrid">
+        <header className="w-full h-[48px] bg-white font-semibold flex items-center justify-center">Book Store</header>
+        <div className="grid grid-cols-2 w-full">
           {books.map((book: bookData) => (
             <BookCard key={book.id} book={book} />
           ))}
