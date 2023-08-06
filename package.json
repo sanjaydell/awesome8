@@ -1,0 +1,23 @@
+{
+  "name": "awesome8",
+  "version": "1.0.0",
+  "description": "Mono-Repo books application",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-client": "npm --prefix client start",
+    "start-server": "npm --prefix server start"
+  },
+  "author": "sanjay",
+  "license": "ISC",
+  "dependencies": {
+    "ts-node": "^10.9.1"
+  }
+}
